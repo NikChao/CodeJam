@@ -78,6 +78,6 @@ class UsersController < ApplicationController
     end
 
     def get_points(user)
-      return Problem.where(id: Solution.where(user: user).where(validity: 1).pluck(:problem_id)).sum(:points)
+      return Problem.where(id: Solution.where(user: user).where(validity: true).pluck(:problem_id)).sum(:points)
     end
 end

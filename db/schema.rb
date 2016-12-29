@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20161229040257) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "competitions", force: :cascade do |t|
     t.string   "name"
     t.datetime "start"
@@ -28,7 +31,7 @@ ActiveRecord::Schema.define(version: 20161229040257) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.integer  "points"
-    t.index ["competition_id"], name: "index_problems_on_competition_id"
+    t.index ["competition_id"], name: "index_problems_on_competition_id", using: :btree
   end
 
   create_table "solutions", force: :cascade do |t|
@@ -39,8 +42,8 @@ ActiveRecord::Schema.define(version: 20161229040257) do
     t.boolean  "validity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["problem_id"], name: "index_solutions_on_problem_id"
-    t.index ["user_id"], name: "index_solutions_on_user_id"
+    t.index ["problem_id"], name: "index_solutions_on_problem_id", using: :btree
+    t.index ["user_id"], name: "index_solutions_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -53,4 +56,7 @@ ActiveRecord::Schema.define(version: 20161229040257) do
     t.boolean  "admin"
   end
 
+  add_foreign_key "problems", "competitions"
+  add_foreign_key "solutions", "problems"
+  add_foreign_key "solutions", "users"
 end

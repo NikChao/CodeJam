@@ -28,6 +28,7 @@ class SolutionsController < ApplicationController
   def create
     @solution = Solution.new(solution_params)
     @solution.user = current_user
+    @solution.validity = test_solution(@solution)
     respond_to do |format|
       if @solution.save
         format.html { redirect_to @solution, notice: 'Solution was successfully created.' }
@@ -44,6 +45,7 @@ class SolutionsController < ApplicationController
   def update
     respond_to do |format|
       if @solution.update(solution_params)
+        @solution.validity = test_solution(@solution)
         format.html { redirect_to @solution, notice: 'Solution was successfully updated.' }
         format.json { render :show, status: :ok, location: @solution }
       else
@@ -72,5 +74,9 @@ class SolutionsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def solution_params
       params.require(:solution).permit(:user_id, :problem_id, :language, :code, :validity)
+    end
+
+    def test_solution(solution)
+      return true
     end
 end
