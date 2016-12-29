@@ -4,8 +4,8 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    redirect_to root_path if !logged_in? || !is_admin?
-    @users = User.all
+    #redirect_to root_path if !logged_in? || !is_admin?
+    @users = User.all.sort {|a,b| get_points(b) <=> get_points(a)}
   end
 
   # GET /users/1
@@ -75,5 +75,9 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:name, :tag)
+    end
+
+    def get_points(user)
+      return Problem.where(id: Solution.where(user: user).where(validity: 1).pluck(:problem_id)).sum(:points)
     end
 end

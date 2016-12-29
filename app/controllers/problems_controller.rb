@@ -4,6 +4,7 @@ class ProblemsController < ApplicationController
   # GET /problems
   # GET /problems.json
   def index
+    redirect_to competition_path(1) if !(logged_in? && is_admin?)
     @problems = Problem.all
   end
 
@@ -14,11 +15,13 @@ class ProblemsController < ApplicationController
 
   # GET /problems/new
   def new
+    redirect_to competition_path(1) if !(logged_in? && is_admin?)
     @problem = Problem.new
   end
 
   # GET /problems/1/edit
   def edit
+    redirect_to competition_path if !(logged_in? && is_admin?)
   end
 
   # POST /problems
@@ -55,6 +58,7 @@ class ProblemsController < ApplicationController
   # DELETE /problems/1.json
   def destroy
     @problem.destroy
+    redirect_to competition_path if !(logged_in? && is_admin?)
     respond_to do |format|
       format.html { redirect_to problems_url, notice: 'Problem was successfully destroyed.' }
       format.json { head :no_content }
