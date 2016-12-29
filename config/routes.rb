@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  resources :problems
+  resources :competitions
   get 'sessions/new'
 
   get  'home/index'
