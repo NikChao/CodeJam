@@ -1,7 +1,6 @@
 <h1> HomePage </h1>
 <% if logged_in? %>
   <h3> Welcome <%= cookies[:user_tag]  %> </h3>
-  <h3> is admin : <%= is_admin? %> </h3>
 <% else %>
   <a href="signup">signup</a>
 <% end %>
@@ -16,4 +15,4 @@
   <a href="login">Log in</a>
 <% end %>
 
-<h3> Go to problems </h3>
+<a href="competitions/1"> Go to problems </a>

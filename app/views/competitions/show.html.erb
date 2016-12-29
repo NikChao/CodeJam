@@ -15,5 +15,8 @@
   <%= @competition.end %>
 </p>
 
+<% @competition.problems.each do |problem| %>
+  <p> <%= problem.id %> <%= problem.name %> <%= problem.description %> <%= problem.link %><%= link_to 'Show', problem_path(problem) %></p>
+<%end%>
 <%= link_to 'Edit', edit_competition_path(@competition) %> |
 <%= link_to 'Back', competitions_path %>

@@ -9,7 +9,8 @@
   </head>
 
   <body>
-    <%= link_to 'Home', root_path %>
+    <%= link_to 'Home', root_path %> 
+    <% if logged_in? %> <%= 'Welcome' + cookies[:user_tag] %> <% end %>
     <% flash.each do |message_type, message| %>
       <%= content_tag(:div, message, class: "alert alert-#{message_type} alert-dismissible fade in") %>
     <% end %>

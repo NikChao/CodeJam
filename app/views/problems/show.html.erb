@@ -17,8 +17,8 @@
 
 <p>
   <strong>Competition:</strong>
-  <%= @problem.competition %>
+  <%= @problem.competition.name %>
 </p>
 
 <%= link_to 'Edit', edit_problem_path(@problem) %> |
-<%= link_to 'Back', problems_path %>
+<%= link_to 'Back', competition_path(@problem.competition) %>
