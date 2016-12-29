@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  resources :solutions
   resources :problems
   resources :competitions
   get 'sessions/new'

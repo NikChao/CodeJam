@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    redirect_to root_path if !(logged_in? && (is_admin? || current_user == @user))
   end
 
   # GET /users/new

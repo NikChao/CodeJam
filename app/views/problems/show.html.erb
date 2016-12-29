@@ -20,5 +20,8 @@
   <%= @problem.competition.name %>
 </p>
 
-<%= link_to 'Edit', edit_problem_path(@problem) %> |
+<% if is_admin? %>
+  <%= link_to 'Edit', edit_problem_path(@problem) %> 
+<% end %>
+<%= link_to 'Solve', new_solution_path %>
 <%= link_to 'Back', competition_path(@problem.competition) %>

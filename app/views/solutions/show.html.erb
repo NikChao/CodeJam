@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @solution.user.tag %>
+</p>
+
+<p>
+  <strong>Problem:</strong>
+  <%= @solution.problem.name %>
+  <%= link_to 'goto', problem_path(@solution.problem) %>
+</p>
+
+<p>
+  <strong>Language:</strong>
+  <%= @solution.language %>
+</p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @solution.code %>
+</p>
+
+<p>
+  <strong>Validity:</strong>
+  <%= @solution.validity %>
+</p>
+
+<%= link_to 'Edit', edit_solution_path(@solution) %> |
+<%= link_to 'Back', solutions_path %>
