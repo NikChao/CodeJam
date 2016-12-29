@@ -1,22 +1,41 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
+<h1>
   <%= @competition.name %>
-</p>
+</h1>
 
 <p>
   <strong>Start:</strong>
   <%= @competition.start %>
-</p>
-
-<p>
   <strong>End:</strong>
   <%= @competition.end %>
 </p>
 
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th> Id </th>
+      <th> Name </th>
+      <th> Description </th>
+      <th> Points </th>
+      <th> Link </th>
+      <th> GoTo </th>
+    </tr>
+  </thead>
+  <tbody>
 <% @competition.problems.each do |problem| %>
-  <p> <%= problem.id %> <%= problem.name %> <%= problem.description %> <%= problem.link %><%= link_to 'Show', problem_path(problem) %></p>
+  <tr>
+    <td><%= problem.id %> </td>
+    <td><%= problem.name %></td>
+    <td><%= problem.description %></td>
+    <td><%= problem.points %></td>
+    <td><%= problem.link %> </td>
+    <td><%= link_to 'Show', problem_path(problem) %></td>
+  </tr>
 <%end%>
-<%= link_to 'Edit', edit_competition_path(@competition) %> |
+  </tbody>
+</table>
+<% if is_admin? %>
+  <%= link_to 'Edit', edit_competition_path(@competition) %> |
+<% end %>
 <%= link_to 'Back', competitions_path %>

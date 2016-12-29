@@ -1,18 +1,13 @@
-<h1> HomePage </h1>
-<% if logged_in? %>
-  <h3> Welcome <%= cookies[:user_tag]  %> </h3>
-<% else %>
-  <a href="signup">signup</a>
-<% end %>
+<center>
+  <h1>
+    Bit Proxima CodeJam 2017 <br>
+    <small>
+      <a href="competitions/1"> Go to problems </a>
+    </small>
+  </h1>
+</center>
 
 <% if logged_in? && is_admin? %>
   <a href="users">users</a>
 <% end %>
 
-<% if logged_in? %>
-  <%= link_to "Log out", logout_path, method: :delete %>
-<% else %>
-  <a href="login">Log in</a>
-<% end %>
-
-<a href="competitions/1"> Go to problems </a>

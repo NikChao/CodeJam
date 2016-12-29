@@ -23,5 +23,10 @@
 <% if is_admin? %>
   <%= link_to 'Edit', edit_problem_path(@problem) %> 
 <% end %>
-<%= link_to 'Solve', new_solution_path %>
+
+<% if !Solution.where(user: current_user).where(problem: @problem).empty? %>
+  <%= link_to 'Update Solution', edit_solution_path(Solution.where(user: current_user).where(problem: @problem).first) %>
+<% else %>
+  <%= link_to 'Solve', new_solution_path %>
+<% end %>
 <%= link_to 'Back', competition_path(@problem.competition) %>

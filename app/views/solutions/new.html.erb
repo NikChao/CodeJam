@@ -1,5 +1,22 @@
 <h1>New Solution</h1>
+<div class="row">
+  <div class="col-md-6">
+    <%= form_for(@solution) do |f| %>
+      <%= f.label :user %>
+      <%= current_user.tag %>
+      <br>
+      <%= f.label :problem %>
+      <%= f.select :problem_id, options_for_select(Problem.all.map{|p| [p.name, p.id]}) %>
+      <br>
+      <%= f.label :language %>
+      <%= f.select :language, options_for_select(["python", "c", "javascript", "ruby"]) %>
+      <br>
+      <%= f.label :code %>
+      <%= f.text_area :code %>
+      <br>
+      <%= f.submit "Submit", class: "btn btn-primary" %>
 
-<%= render 'form', solution: @solution %>
-
+    <% end %>
+  </div>
+</div>
 <%= link_to 'Back', solutions_path %>

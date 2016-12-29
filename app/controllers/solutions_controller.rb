@@ -27,7 +27,7 @@ class SolutionsController < ApplicationController
   # POST /solutions.json
   def create
     @solution = Solution.new(solution_params)
-
+    @solution.user = current_user
     respond_to do |format|
       if @solution.save
         format.html { redirect_to @solution, notice: 'Solution was successfully created.' }
