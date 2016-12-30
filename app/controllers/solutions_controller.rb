@@ -43,9 +43,10 @@ class SolutionsController < ApplicationController
   # PATCH/PUT /solutions/1
   # PATCH/PUT /solutions/1.json
   def update
+    
+    @solution.validity = test_solution(@solution)
     respond_to do |format|
       if @solution.update(solution_params)
-        @solution.validity = test_solution(@solution)
         format.html { redirect_to @solution, notice: 'Solution was successfully updated.' }
         format.json { render :show, status: :ok, location: @solution }
       else
@@ -77,6 +78,13 @@ class SolutionsController < ApplicationController
     end
 
     def test_solution(solution)
-      return true
+      tests = Test.where(problem: solution.problem)
+      return true if tests.blank?
+
+      i = 0
+      tests.each do |test|
+        i = i + 1
+      end
+      return false
     end
 end

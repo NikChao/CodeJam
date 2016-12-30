@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  resources :tests
   resources :solutions
   resources :problems
   resources :competitions
@@ -16,6 +17,8 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
+
+  get '/leaderboard' => 'users#index'
 
   resources :users
   root 'home#home'
