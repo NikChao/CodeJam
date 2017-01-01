@@ -1,3 +1,5 @@
+require 'test_solution'
+
 class SolutionsController < ApplicationController
   before_action :set_solution, only: [:show, :edit, :update, :destroy]
 
@@ -19,6 +21,21 @@ class SolutionsController < ApplicationController
     @solution = Solution.new
   end
 
+  def make_tests
+    @t1 = Test.new
+    @t1.problem_id = 1
+    @t1.input = []
+    @t1.output = "Hello, World!\n"
+    @t1.save
+  
+    @t2 = Test.new
+    @t2.problem_id = 2
+    @t2.input = ["1", "2"]
+    @t2.output = "3\n"
+    @t2.save
+    redirect_to root_path
+  end
+
   # GET /solutions/1/edit
   def edit
   end
@@ -28,7 +45,7 @@ class SolutionsController < ApplicationController
   def create
     @solution = Solution.new(solution_params)
     @solution.user = current_user
-    @solution.validity = test_solution(@solution)
+    @solution.validity = test_code(@solution)
     respond_to do |format|
       if @solution.save
         format.html { redirect_to @solution, notice: 'Solution was successfully created.' }
@@ -43,10 +60,10 @@ class SolutionsController < ApplicationController
   # PATCH/PUT /solutions/1
   # PATCH/PUT /solutions/1.json
   def update
-    
-    @solution.validity = test_solution(@solution)
     respond_to do |format|
       if @solution.update(solution_params)
+        @solution.validity = test_code(@solution)
+        @solution.save
         format.html { redirect_to @solution, notice: 'Solution was successfully updated.' }
         format.json { render :show, status: :ok, location: @solution }
       else
@@ -77,14 +94,20 @@ class SolutionsController < ApplicationController
       params.require(:solution).permit(:user_id, :problem_id, :language, :code, :validity)
     end
 
-    def test_solution(solution)
+    def test_code(solution)
       tests = Test.where(problem: solution.problem)
       return true if tests.blank?
-
       i = 0
       tests.each do |test|
-        i = i + 1
+        `touch here1`
+        inputs = test.input
+        output = test.output
+        i = i + 1 if !test_solution(inputs, output, solution)
       end
-      return false
+      if i > 0 
+        return false
+      else
+        return true
+      end
     end
 end

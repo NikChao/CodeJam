@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
 
   get '/leaderboard' => 'users#index'
-
+  get '/newtests' => 'solutions#make_tests'
   resources :users
   root 'home#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
