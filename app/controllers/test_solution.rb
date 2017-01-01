@@ -65,7 +65,7 @@ def test_solution(inputs, output, solution)
     result = "Wrong, expected: #{output}got: #{stdout}" if stdout != output #bad solution
     result stderr if stderr #if error
   end
-  destroy_file(filename)
+  #destroy_file(filename)
   puts result
   return true if result == "Correct"
   return false

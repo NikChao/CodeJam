@@ -33,6 +33,13 @@ class SolutionsController < ApplicationController
     @t2.input = ["1", "2"]
     @t2.output = "3\n"
     @t2.save
+    
+    @t3 = Test.new
+    @t3.problem_id = 3
+    @t3.input = ["5"]
+    @t3.output = "120\n"
+    @t3.save
+
     redirect_to root_path
   end
 
