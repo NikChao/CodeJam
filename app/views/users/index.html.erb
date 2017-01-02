@@ -6,7 +6,6 @@
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th>Name</th>
       <th>Tag</th>
       <th>Points</th>
       <% if is_admin? %><th colspan="3"></th><% end %>
@@ -16,7 +15,6 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.name %></td>
         <td><%= user.tag %></td>
         <td><%= get_points(user) %></td>
         <% if is_admin? %>

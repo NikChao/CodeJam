@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     #redirect_to root_path if !logged_in? || !is_admin?
-    @users = User.all.sort {|a,b| get_points(b) <=> get_points(a)}
+    @users = User.where(admin: false).sort {|a,b| get_points(b) <=> get_points(a)}
   end
 
   # GET /users/1
@@ -28,6 +28,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.name = @user.name.downcase
+    @user.admin = false;
     respond_to do |format|
       if @user.save
         flash[:success] = "Welcome to the BitProxima CodeJam"

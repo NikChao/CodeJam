@@ -9,11 +9,14 @@
   </head>
 
   <body>
-    <%= link_to 'Home', root_path %> 
     <% if logged_in? %>
       <%= 'Welcome ' + cookies[:user_tag] %> 
+      <%= link_to ' Home ', root_path %> 
+      <%= link_to ' Leader Board ', leaderboard_path %>
+      <%= link_to ' Problem Path ', competition_path(1) %>
       <%= link_to " Log Out ", logout_path, method: :delete %>
     <% else %>
+      <%= link_to ' Home ', root_path %>
       <%= link_to " Sign Up ", signup_path %>
       <%= link_to " Log In ", login_path %>
     <% end %>

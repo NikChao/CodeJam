@@ -19,6 +19,7 @@
       <th> Description </th>
       <th> Points </th>
       <th> Link </th>
+      <th> solved </th>
       <th> GoTo </th>
     </tr>
   </thead>
@@ -30,6 +31,7 @@
     <td><%= problem.description %></td>
     <td><%= problem.points %></td>
     <td><%= problem.link %> </td>
+    <td><%= "yes" if !Solution.where(problem: problem).where(user: current_user).where(validity: true).blank?%></td>
     <td><%= link_to 'Show', problem_path(problem) %></td>
   </tr>
 <%end%>
