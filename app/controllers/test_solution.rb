@@ -4,7 +4,9 @@ require 'date'
 @@ext = {"ruby" => ".rb",
          "javascript" => ".js",
          "python" => ".py",
-         "C" => ".c"}
+         "C" => ".c",
+         "haskell" => ".hs"
+        }
 
 def make_file(solution)
   filename = DateTime.now.to_s + Process.pid.to_s + @@ext[solution.language]
@@ -24,6 +26,9 @@ def cmd_string(filename, language)
     when "C"
       `gcc -o #{pid} #{filename}`
       return "./#{pid}"
+    when "haskell"
+      `ghc --make #{filename}`
+      `return ./#{filename}`
   end
 end
 
@@ -72,5 +77,5 @@ def test_solution(inputs, output, solution)
 end
 
 def destroy_file(filename)
-  `rm #{filename}`
+  `rm #{filename}*`
 end

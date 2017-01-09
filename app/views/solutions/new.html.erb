@@ -1,5 +1,6 @@
 <h1>New Solution</h1>
 <div class="row">
+  <p> <%= @problem %>
   <div class="col-md-6">
     <%= form_for(@solution) do |f| %>
       <%= f.label :user %>
@@ -9,7 +10,7 @@
       <%= f.select :problem_id, options_for_select(Problem.all.map{|p| [p.name, p.id]}) %>
       <br>
       <%= f.label :language %>
-      <%= f.select :language, options_for_select(["python", "c", "javascript", "ruby"]) %>
+      <%= f.select :language, options_for_select(["python", "c", "javascript", "ruby", "haskell"]) %>
       <br>
       <%= f.label :code %>
       <%= f.text_area :code %>

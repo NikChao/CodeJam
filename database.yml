@@ -1,0 +1,20 @@
+default:
+    adapter: postgresql
+    encoding: unicode
+    host: db
+    port: 5432
+    username: postgres
+    password: <%= ENV['POSTGRES_PASSWORD'] %>
+
+development:
+    <<: *default
+    database: codejam_dev
+
+test:
+    <<: *default
+    database: codejam_test
+
+production:
+    <<: *default
+    database: codejam_production
+
