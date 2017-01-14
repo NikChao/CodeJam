@@ -1,16 +1,19 @@
-<h1>Signup</h1>
-
-<div class="row">
+<div class="vert-middle-container">
     <div class="col-md-6 col-md-offset-3">
-        <%= form_for(@user, url: signup_path) do |f| %>
-            <%= f.label :name %>
-            <%= f.text_field :name %>
-
+        <%= form_for @user, url: signup_path, :html => {:class => "pure-form pure-form-aligned"} do |f| %>
+	    <div class="pure-control-group">
+                <%= f.label :name %>
+                <%= f.text_field :name, placeholder: "Name"%>
+	    </div>
+	    <div class="pure-control-group">
             <%= f.label :tag %>
-            <%= f.text_field :tag %>
-
-            <%= f.submit "Create account", class: "btn btn-primary" %>
+            <%= f.text_field :tag, placeholder: "Tag/Handle" %>
+	    </div>
+            <div class="pure-controls">
+	    <%= f.submit "Create account", class: "pure-button pure-button-primary" %>
+	    </div>
         <% end %>
     </div>
 </div>
 <%= link_to 'Back', root_path %>
+
