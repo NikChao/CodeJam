@@ -12,5 +12,14 @@
  *
  *= require_tree .
  *= require_self
- *= require bootstrap.min
+ *= stub homepage
+ *= stub marketing
+ *= stub marketing-old-ie
  */
+
+.vert-middle-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
