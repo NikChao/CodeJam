@@ -1,13 +1,13 @@
 <h1>New Solution</h1>
 <div class="row">
-  <p> <%= @problem %>
+  <p> <%= @problem.name %> </p>
   <div class="col-md-6">
     <%= form_for(@solution) do |f| %>
-      <%= f.label :user %>
-      <%= current_user.tag %>
       <br>
       <%= f.label :problem %>
-      <%= f.select :problem_id, options_for_select(Problem.all.map{|p| [p.name, p.id]}) %>
+      <%= f.select :problem_id, options_for_select(Problem.where(id: @problem.id).map{|p| [p.name, p.id]}) %>
+      <br>
+      <p><%= @problem.description %></p>
       <br>
       <%= f.label :language %>
       <%= f.select :language, options_for_select(["python", "c", "javascript", "ruby", "haskell"]) %>

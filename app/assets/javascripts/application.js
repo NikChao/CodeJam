@@ -15,3 +15,18 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+(function (window, document) {
+document.getElementById('toggle').addEventListener('click', function (e) {
+    document.getElementById('tuckedMenu').classList.toggle('custom-menu-tucked');
+    document.getElementById('toggle').classList.toggle('x');
+});
+})(this, this.document);
+</script>
+
+
+<style>
+.main {
+    padding: 2em;
+    color: black;
+}

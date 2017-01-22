@@ -15,6 +15,25 @@
   </head>
 
   <body>
+<div class="custom-menu-wrapper">
+    <div class="pure-menu pure-menu-horizontal pure-menu-scrollable custom-menu custom-menu-bottom custom-menu-tucked" id="tuckedMenu">
+        <div class="custom-menu-screen"></div>
+        <ul class="pure-menu-list">
+            <li class="pure-menu-item"><a href="/" class="pure-menu-link">Home</a></li>
+            <% if logged_in? %>
+            <li class="pure-menu-item"><a href="" class="pure-menu-link">About</a></li>
+            <li class="pure-menu-item"><a href="#" class="pure-menu-link">Contact</a></li>
+            <li class="pure-menu-item"><a href="#" class="pure-menu-link">Blog</a></li>
+            <li class="pure-menu-item"><a href="#" class="pure-menu-link">GitHub</a></li>
+            <li class="pure-menu-item"><a href="#" class="pure-menu-link">Twitter</a></li>
+            <% else %>
+            <li class="pure-menu-item"><a href="#" class="pure-menu-link">Apple</a></li>
+            <li class="pure-menu-item"><a href="#" class="pure-menu-link">Google</a></li>
+            <li class="pure-menu-item"><a href="#" class="pure-menu-link">Wang</a></li>
+            <% end %>
+        </ul>
+    </div>
+</div>
     <% if logged_in? %>
       <%= 'Welcome ' + cookies[:user_tag] %> 
       <%= link_to ' Home ', root_path %> 

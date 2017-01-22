@@ -18,6 +18,7 @@ class SolutionsController < ApplicationController
 
   # GET /solutions/new
   def new
+    @problem = Problem.find(params[:problem])
     @solution = Solution.new
   end
 

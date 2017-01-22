@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<center>
+    
 <h1>
   <%= @competition.name %>
 </h1>
@@ -11,7 +13,7 @@
   <%= @competition.end %>
 </p>
 
-<table class="table table-bordered">
+<table class="pure-table pure-table-bordered">
   <thead>
     <tr>
       <th> Id </th>
@@ -37,6 +39,7 @@
 <%end%>
   </tbody>
 </table>
+</center>
 <% if is_admin? %>
   <%= link_to 'Edit', edit_competition_path(@competition) %> |
 <% end %>
