@@ -1,15 +1,15 @@
-<%= provide(:title, "Log in") %>
-<h1> Login </h1>
-
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(:session, url: login_path) do |f| %>
-      <%= f.label :name %>
-      <%= f.text_field :name, class: 'form-control' %>
-
-      <%= f.submit "Log in", class: "btn btn-primary" %>
+<div class="vert-middle-container">
+    <div class="col-md-6 col-md-offset-3">
+    <%= form_for(:session, url: login_path, :html => {:class => "pure-form pure-form-aligned"})  do |f| %>
+    <div class="pure-control-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, placeholder: "Name"%>
+    </div>
+    <div class="pure-controls">
+        <%= f.submit "Login", class: "pure-button pure-button-primary" %>
+        <p> New User? <%= link_to "Sign up now", signup_path %></p>
+    </div>
     <% end %>
-
-    <p> New User? <%= link_to "Sign up now", signup_path %></p>
-  </div>
+    </div>
 </div>
+

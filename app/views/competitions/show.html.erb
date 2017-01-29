@@ -33,8 +33,8 @@
     <td class="mid-cell"><%= problem.difficulty %></td>
     <td class="small-cell"><%= problem.points %></td>
 <!--     <td class="mid-cell"><%#= problem.link %> </td> -->
-    <td class="small-cell"><%= "yes" if !Solution.where(problem: problem).where(user: current_user).where(validity: true).blank?%></td>
-    <td class="small-cell"><%= link_to 'Show', problem_path(problem) %></td>
+    <td class="small-cell"><%= material_icon.check if !Solution.where(problem: problem).where(user: current_user).where(validity: true).blank?%></td>
+    <td class="small-cell"><%= link_to material_icon.play_arrow, problem_path(problem) %></td>
   </tr>
 <%end%>
   </tbody>
