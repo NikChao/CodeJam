@@ -1,9 +1,5 @@
 <div class="header">
     <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
-        <% if logged_in? %>
-            <p class="pure-menu-heading" href="">Welcome <%= cookies[:user_tag] %></a>
-        <% end %>
-
         <ul class="pure-menu-list">    
             <% if logged_in? %>
                 <li class="pure-menu-item"><a href="/users/<%= @current_user.id %>" class="pure-menu-link">My Account</a></li>
@@ -20,9 +16,6 @@
 <div class="splash-container">
     <div class="splash">
         <h1 class="splash-head">BitProxima CodeJam 2017</h1>
-        <p class="splash-subhead">
-            10 Go in, only one will remain
-        </p>
         <p>
             <a href="/problems" class="pure-button pure-button-primary">Challenges</a>
             <a href="/leaderboard" class="pure-button pure-button-primary">Leaderboard</a>

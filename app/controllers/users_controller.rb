@@ -47,7 +47,8 @@ class UsersController < ApplicationController
     redirect_to root_path if !logged_in? && !is_admin?
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        flash[:success] = 'User was successfully updated.'
+        format.html { redirect_to @user}
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }

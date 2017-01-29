@@ -9,10 +9,7 @@
 
     <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-
-  </head>
-
-  <body>
+<body>
 <div class="custom-menu-wrapper">
     <div class="pure-menu pure-menu-horizontal pure-menu-scrollable custom-menu custom-menu-bottom custom-menu-tucked" id="tuckedMenu">
         <div class="custom-menu-screen"></div>
@@ -35,12 +32,8 @@
     <% end %>
 
     <% flash.each do |message_type, message| %>
-    <div class="alert alert-<%= message_type %> alert-dismissable">
-      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-      <%= message %>
-    </div>
+    <%= content_tag(:div, message, class: "alert alert-#{message_type} alert-dismissible fade in") %>
     <% end %>
     <%= yield %>
     <%= render 'layouts/footer' %>
-  </body>
 </html>
