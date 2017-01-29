@@ -18,8 +18,12 @@ class SolutionsController < ApplicationController
 
   # GET /solutions/new
   def new
-    @problem = Problem.find(params[:problem])
-    @solution = Solution.new
+    if !logged_in?
+      redirect_to problems_path
+    else
+      @problem = Problem.find(params[:problem])
+      @solution = Solution.new
+    end
   end
 
   def make_tests
@@ -68,6 +72,7 @@ class SolutionsController < ApplicationController
   # PATCH/PUT /solutions/1
   # PATCH/PUT /solutions/1.json
   def update
+    redirect_to problems_path if !logged_in
     respond_to do |format|
       if @solution.update(solution_params)
         @solution.validity = test_code(@solution)
