@@ -37,8 +37,8 @@ def run(cmd, inputs, &block)
 
     if block_given?
       Thread.new do
-        until (line = stdout.gets).nil? do
-          yield line, nil, thread
+        until (line = stdout.gets).nil? do 
+         yield line, nil, thread
         end
       end
     end

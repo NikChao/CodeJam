@@ -10,12 +10,9 @@
                 <%= gravatar_for @user %>
                 <%= @user.tag %>
             </h1>
+            <h3>Points <%= get_points(@user) %></h3>
         </section>
     </aside>
-    <% if logged_in? %>
-      <p> logged in </p>
-    <% else %>
-      <p> logged out </p>
-    <% end %>
+
 </div>
 

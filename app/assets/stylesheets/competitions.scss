@@ -1,3 +1,59 @@
 // Place all the styles related to the Competitions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+    font-family: 'Raleway';
+    font-weight: lighter;
+}
+
+h1 {
+    font-weight: lighter;
+}
+
+table {
+    position: absolute;
+    left:50%;
+    transform: translate(-50%, 0%);
+    width: 75%;
+}
+
+table thead{
+    color: black;
+}
+
+th {
+    border-bottom: 1px solid black;
+    font-weight: lighter;
+    font-size: 24px;
+    height: 50px;
+    text-align: left;
+}
+
+td {
+    border-bottom: 1px solid black;
+    text-align: left;
+    font-size: 18px;
+    height: 24px;
+}
+
+.hl-row:hover {
+    background: #ddd;
+}
+
+.table-title {
+    border: none;
+}
+
+.small-cell {
+    width: 10%;
+    text-align: left;
+}
+
+.mid-cell {
+    width: 20%;
+    text-align: left;
+}

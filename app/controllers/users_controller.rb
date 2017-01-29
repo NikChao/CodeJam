@@ -44,7 +44,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    redirect_to root_path if !logged_in? || !is_admin?
+    redirect_to root_path if !logged_in? && !is_admin?
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }

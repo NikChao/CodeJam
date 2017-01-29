@@ -10,7 +10,7 @@
 
 
     <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous">
-
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 
   </head>
 
@@ -19,31 +19,20 @@
     <div class="pure-menu pure-menu-horizontal pure-menu-scrollable custom-menu custom-menu-bottom custom-menu-tucked" id="tuckedMenu">
         <div class="custom-menu-screen"></div>
         <ul class="pure-menu-list">
-            <li class="pure-menu-item"><a href="/" class="pure-menu-link">Home</a></li>
+            <li class="pure-menu-item"><%= link_to ' Home ', root_path, {:class => "pure-menu-link"} %></li>
             <% if logged_in? %>
-            <li class="pure-menu-item"><a href="" class="pure-menu-link">About</a></li>
-            <li class="pure-menu-item"><a href="#" class="pure-menu-link">Contact</a></li>
-            <li class="pure-menu-item"><a href="#" class="pure-menu-link">Blog</a></li>
-            <li class="pure-menu-item"><a href="#" class="pure-menu-link">GitHub</a></li>
-            <li class="pure-menu-item"><a href="#" class="pure-menu-link">Twitter</a></li>
+            <li class="pure-menu-item"><%= link_to ' Leader Board ', leaderboard_path, {:class => "pure-menu-link"} %></li>
+            <li class="pure-menu-item"><%= link_to ' Challenges ', competition_path(1), {:class => "pure-menu-link"} %></li>
+            <li class="pure-menu-item"><%= link_to ' Log Out ', logout_path, :class => "pure-menu-link", method: :delete %></li>
             <% else %>
-            <li class="pure-menu-item"><a href="#" class="pure-menu-link">Apple</a></li>
-            <li class="pure-menu-item"><a href="#" class="pure-menu-link">Google</a></li>
-            <li class="pure-menu-item"><a href="#" class="pure-menu-link">Wang</a></li>
+            <li class="pure-menu-item"><%= link_to " Sign Up ", signup_path, {:class => "pure-menu-link"} %></li>
+            <li class="pure-menu-item"><%= link_to " Log In ", login_path, {:class => "pure-menu-link"} %></li>
             <% end %>
         </ul>
     </div>
 </div>
     <% if logged_in? %>
-      <%= 'Welcome ' + cookies[:user_tag] %> 
-      <%= link_to ' Home ', root_path %> 
-      <%= link_to ' Leader Board ', leaderboard_path %>
-      <%= link_to ' Problem Path ', competition_path(1) %>
-      <%= link_to " Log Out ", logout_path, method: :delete %>
     <% else %>
-      <%= link_to ' Home ', root_path %>
-      <%= link_to " Sign Up ", signup_path %>
-      <%= link_to " Log In ", login_path %>
     <% end %>
 
     <% flash.each do |message_type, message| %>
