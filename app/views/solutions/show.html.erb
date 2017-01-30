@@ -1,15 +1,8 @@
+<div class="main-div">
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @solution.user.tag %>
-</p>
-
-<p>
-  <strong>Problem:</strong>
-  <%= @solution.problem.name %>
-  <%= link_to 'goto', problem_path(@solution.problem) %>
-</p>
+<h1><%= @solution.problem.name %></h1>
+<% if solved? @solution.problem %><h1 class="solved">Success!</h1><% else %><h1 class="not-solved">Falure!</h1><% end %>
 
 <p>
   <strong>Language:</strong>
@@ -27,4 +20,6 @@
 </p>
 
 <%= link_to 'Edit', edit_solution_path(@solution) %> |
-<%= link_to 'Back', solutions_path %>
+<%= link_to 'Back', solutions_path %> |
+<%= link_to 'Problem', problem_path(@solution.problem) %>
+</div>

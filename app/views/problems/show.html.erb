@@ -1,9 +1,7 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @problem.name %>
-</p>
+<div class="main-div">
+<h1><%= @problem.name %></h1>
+<% if solved? @problem%><h1 class="solved">Solved!</h1><% else %><h1 class="not-solved">not solved</h1><% end %>
 
 <p>
   <strong>Description:</strong>
@@ -30,3 +28,4 @@
   <%= link_to 'Solve', new_solution_path(:problem => @problem) if logged_in?%>
 <% end %>
 <%= link_to 'Back', competition_path(@problem.competition) %>
+</div>

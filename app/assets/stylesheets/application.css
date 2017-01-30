@@ -29,6 +29,11 @@ body {
     background-color: #F6F6F6;
 }
 
+.main-div {
+    padding-left: 5%;
+    padding-top: 2%;
+}
+
 #footer {
     position: fixed;
     bottom: 0;
@@ -157,4 +162,8 @@ td a:hover {
         overflow: hidden;
     }
 
+}
+
+p {
+    margin-left: 0;
 }

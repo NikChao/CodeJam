@@ -21,6 +21,12 @@
         <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
     </head>
     <body>
+        <% flash.each do |message_type, message| %>
+                <div class="alert alert-<%= message_type %> alert-dismissable">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <%= message %>
+            </div>
+        <% end %>
         <%= yield %>
     </body>
 </html>
