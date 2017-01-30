@@ -18,6 +18,11 @@
  *= stub marketing-old-ie
  */
 
+pre {
+    width: 750px; /* about 80char wide on my laptop screen*/
+    background: #232323;
+}
+
 .vert-middle-container {
     position: absolute;
     top: 50%;
@@ -40,7 +45,7 @@ body {
 }
 
 .pure-menu {
-    background-color: #2d3e50;
+    background-color: #232323;
     padding-top: .5em;
     padding-bottom: .5em;
 }

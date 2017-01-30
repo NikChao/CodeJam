@@ -9,8 +9,9 @@
 
     <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-
-  </head>
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/railscasts.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>  </head>
 
   <body>
 <div class="custom-menu-wrapper">
@@ -42,5 +43,6 @@
     <% end %>
     <%= yield %>
     <%= render 'layouts/footer' %>
+    <script>hljs.initHighlightingOnLoad();</script>
   </body>
 </html>

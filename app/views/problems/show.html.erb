@@ -23,6 +23,11 @@
   <%= @problem.competition.name %>
 </p>
 
+<% if solved? @problem %>
+  <pre><code class="<%= get_solution(@problem).language %> railscasts"><%= get_solution(@problem).code %></code></pre>
+<% elsif attempt? @problem%>
+  <pre><code class="<%= get_attempt(@problem).language %> railscasts"><%= get_attempt(@problem).code %></code></pre>
+<% end %>
 <% if is_admin? %>
   <%= link_to 'Edit', edit_problem_path(@problem) %> 
 <% end %>

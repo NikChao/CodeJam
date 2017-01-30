@@ -29,7 +29,11 @@ module SessionsHelper
   end
 
   def is_admin?
-    current_user.admin
+    if !logged_in?
+      return false
+    else 
+      return current_user.admin
+    end
   end
 
   def log_out

@@ -14,10 +14,10 @@
   <%= @solution.language %>
 </p>
 
-  <strong>Code:</strong>
-<pre>
-<%= @solution.code %>
-</pre>
+<strong>Code:</strong>
+<pre><code class="<%= @solution.language %> railscasts"><%= @solution.code %></pre></code>
+
+<br>
 
 <%= link_to 'Edit', edit_solution_path(@solution) %> |
 <%= link_to 'Back', solutions_path %> |
