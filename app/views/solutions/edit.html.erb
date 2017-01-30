@@ -1,16 +1,14 @@
 <div class="main-div">
-<h1>Editing Solution</h1>
+<h1><%= @solution.problem.name %></h1>
+<p><%= @solution.problem.description %></p>
 
+<strong>For Example:</strong>
+<p><%= @solution.problem.example %></p>
 <div class="row">
   <div class="col-md-6">
     <%= form_for(@solution) do |f| %>
-      <%= f.label :user %>
-      <%= f.select :user_id, options_for_select(User.where(id: current_user.id).map{|u| [u.name, u.id]}) %>
-      <br>
-      <%= f.label :problem %>
-      <%= f.select :problem_id, options_for_select(Problem.all.where(id: @solution.problem.id).map{|p| [p.name, p.id]}) %>
-
-      <br>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <%= f.hidden_field :problem_id, :value => @solution.problem.id %>
       <%= f.label :language %>
       <%= f.select :language, options_for_select([@solution.language, "python", "c", "javascript", "ruby", "haskell"]) %>
       <br>

@@ -2,22 +2,22 @@
 <p id="notice"><%= notice %></p>
 
 <h1><%= @solution.problem.name %></h1>
-<% if solved? @solution.problem %><h1 class="solved">Success!</h1><% else %><h1 class="not-solved">Falure!</h1><% end %>
+<% if solved? @solution.problem %><h1 class="solved">Success!</h1><% else %><h1 class="not-solved">Failure!</h1><% end %>
+
+<p>
+  <strong>Description</strong>
+  <%= @solution.problem.description %>
+</p>
 
 <p>
   <strong>Language:</strong>
   <%= @solution.language %>
 </p>
 
-<p>
   <strong>Code:</strong>
-  <%= @solution.code %>
-</p>
-
-<p>
-  <strong>Validity:</strong>
-  <%= @solution.validity %>
-</p>
+<pre>
+<%= @solution.code %>
+</pre>
 
 <%= link_to 'Edit', edit_solution_path(@solution) %> |
 <%= link_to 'Back', solutions_path %> |
