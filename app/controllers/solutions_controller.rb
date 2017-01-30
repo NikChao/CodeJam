@@ -60,6 +60,7 @@ class SolutionsController < ApplicationController
     @solution.validity = test_code(@solution)
     respond_to do |format|
       if @solution.save
+        flash[:success] = 'Solution was successfully created'
         format.html { redirect_to @solution, notice: 'Solution was successfully created.' }
         format.json { render :show, status: :created, location: @solution }
       else
@@ -72,12 +73,13 @@ class SolutionsController < ApplicationController
   # PATCH/PUT /solutions/1
   # PATCH/PUT /solutions/1.json
   def update
-    redirect_to problems_path if !logged_in
+    redirect_to problems_path if !logged_in?
     respond_to do |format|
       if @solution.update(solution_params)
         @solution.validity = test_code(@solution)
         @solution.save
-        format.html { redirect_to @solution, notice: 'Solution was successfully updated.' }
+        flash[:success] = 'Solution was successfully updated.'
+        format.html { redirect_to @solution}
         format.json { render :show, status: :ok, location: @solution }
       else
         format.html { render :edit }

@@ -31,6 +31,8 @@ class UsersController < ApplicationController
     @user.admin = false;
     respond_to do |format|
       if @user.save
+        log_in @user
+        remember @user
         flash[:success] = "Welcome to the BitProxima CodeJam"
         format.html { redirect_to root_path }
         format.json { render :show, status: :created, location: @user }

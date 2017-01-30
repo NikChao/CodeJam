@@ -7,7 +7,7 @@ module SessionsHelper
     user.forget
     cookies.delete(:user_id)
     cookies.delete(:unsigned_id)
-    cookies.delete(:admin)
+    # cookies.delete(:admin)
     cookies.delete(:user_tag)
     cookies.delete(:remember_token)
   end
@@ -29,7 +29,7 @@ module SessionsHelper
   end
 
   def is_admin?
-    cookies[:admin] == true
+    current_user.admin
   end
 
   def log_out
@@ -42,7 +42,7 @@ module SessionsHelper
     user.remember
     cookies.permanent.signed[:user_id] = user.id
     cookies.permanent[:unsigned_id] = user.id
-    cookies.permanent[:admin] = user.admin
+    # cookies.permanent[:admin] = user.admin
     cookies.permanent[:user_tag] = user.tag
     cookies.permanent[:remember_token] = user.remember_token
   end
