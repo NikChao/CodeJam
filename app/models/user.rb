@@ -2,7 +2,7 @@ class User < ApplicationRecord
     
     attr_accessor :remember_token
     validates :name, length: {minimum: 4, maximum: 32}, uniqueness: true, presence: true
-    validates :tag, length: {minimum: 4, maximum: 8}
+    validates :tag, length: {minimum: 2, maximum: 8}
 
 
     # Returns the hash digest of a given string

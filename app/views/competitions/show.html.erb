@@ -16,9 +16,8 @@
 <table class="">
   <thead>
     <tr>
-      <th class="small-cell"> Id </th>
       <th class="mid-cell"> Name </th>
-      <th class="mid-cell"> Difficulty </th>
+      <th class="small-cell"> Difficulty </th>
       <th class="small-cell"> Points </th>
       <!-- <th class="mid-cell"> Link <:q/th> -->
       <th class="small-cell"> Solved </th>
@@ -28,9 +27,8 @@
   <tbody>
 <% @competition.problems.each do |problem| %>
   <tr class="hl-row">
-    <td class="small-cell"><%= problem.id %> </td>
     <td class="mid-cell"><%= problem.name %></td>
-    <td class="mid-cell"><%= problem.difficulty %></td>
+    <td class="small-cell"><%= problem.difficulty %></td>
     <td class="small-cell"><%= problem.points %></td>
 <!--     <td class="mid-cell"><%#= problem.link %> </td> -->
     <td class="small-cell"><%= material_icon.check if !Solution.where(problem: problem).where(user: current_user).where(validity: true).blank?%></td>
