@@ -13,7 +13,6 @@
 //= require jquery
 //= require npm
 //= require jquery_ujs
-//= require turbolinks
 //= require bootstrap
 //= require_tree .
 
@@ -23,11 +22,3 @@ document.getElementById('toggle').addEventListener('click', function (e) {
     document.getElementById('toggle').classList.toggle('x');
 });
 })(this, this.document);
-</script>
-
-
-<style>
-.main {
-    padding: 2em;
-    color: black;
-}

@@ -3,7 +3,7 @@
 <p><%= @solution.problem.description %></p>
 
 <strong>For Example:</strong>
-<p><%= @solution.problem.example %></p>
+<pre><code class="io-example"><%= @solution.problem.example %></code></pre>
 <div class="row">
   <div class="col-md-6">
     <%= form_for(@solution) do |f| %>
@@ -22,4 +22,5 @@
     
 <%= link_to 'Show', @solution %> |
 <%= link_to 'Back', solutions_path %>
+<br><br>
 </div>
