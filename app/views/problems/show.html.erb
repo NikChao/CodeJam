@@ -1,4 +1,3 @@
-
 <div class="main-div">
 <h1><%= @problem.name %></h1>
 <% if solved? @problem%><h1 class="solved">Solved!</h1><% else %><h1 class="not-solved">not solved</h1><% end %>
@@ -34,3 +33,5 @@
 <% end %>
 <%= link_to 'Back', competition_path(@problem.competition) %>
 </div>
+<script>hljs.initHighlightingOnLoad();</script>
+

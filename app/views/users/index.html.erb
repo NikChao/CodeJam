@@ -18,9 +18,9 @@
 
   <tbody>
     <% @users.each.with_index do |user, ind| %>
-      <tr class="leader-row <% if user.id == @current_user.id %>me-in-table<% end %> <% if ind == 0 %>first-place<% else %>small-cell<% end %>">
-        <td class="small-cell <%= 'first-place-num' if ind == 0 %>"><%= ind + 1%></td>
-        <td class="small-cell"><%= user.tag %> <% if user.id == @current_user.id %>(me)<% end %></td>
+      <tr class="leader-row <% if logged_in? %><% if user.id == @current_user.id %>me-in-table<% end %><% end %> <% if ind == 0 %>first-place<% else %>small-cell<% end %>">
+        <td class="small-cell <%= 'first-place-num' if ind == 0 %>"><%= ind + 1%><%= 'st 🏆' if ind==0 %></td>
+        <td class="small-cell"><%= user.tag %> <% if logged_in? %><% if user.id == @current_user.id %>(me)<% end %><% end %></td>
         <td class="mid-cell"><%= get_points(user) %></td>
         <% if is_admin? %>
         <td><%= link_to 'Show', user %></td>

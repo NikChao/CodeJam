@@ -10,12 +10,12 @@
       <%= f.hidden_field :user_id, :value => current_user.id %>
       <%= f.hidden_field :problem_id, :value => @solution.problem.id %>
       <%= f.label :language %>
-      <%= f.select :language, options_for_select([@solution.language, "python", "c", "javascript", "ruby", "haskell"]) %>
+      <%= f.select :language, options_for_select([@solution.language, "python", "javascript", "ruby"]) %>
+      <%= f.submit "Submit Changes", class: "btn btn-primary" %>
       <br>
       <%= f.label :code %>
       <%= f.text_area :code %>
       <br>
-      <%= f.submit "Submit Changes", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>
